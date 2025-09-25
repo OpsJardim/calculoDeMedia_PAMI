@@ -4,26 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EBE6DB"
+    android:background="#FFF0FF"
     tools:context=".MainActivity"
     android:id="@+id/activity_main">
 
+    <ImageView android:id="@+id/topo"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#7F4CA5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/wave__1_"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-114dp"
+        app:layout_constraintTop_toBottomOf="@+id/topo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:scaleType="fitStart"
         tools:ignore="MissingConstraints" />
 
+
     <ImageView
+        android:id="@+id/rodape"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:scaleType="fitEnd"
         android:src="@drawable/wave__2_"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="536dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintBottom_toTopOf="@id/roda"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView android:id="@+id/roda"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#7F4CA5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <ImageView
         android:layout_width="136dp"
@@ -31,10 +52,10 @@
         android:layout_marginStart="16dp"
         android:src="@drawable/baseline_person_24"
         app:layout_constraintEnd_toStartOf="@+id/text"
-        app:layout_constraintHorizontal_bias="0.275"
+        app:layout_constraintHorizontal_bias="0.285"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="50dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="38dp"/>
 
     <TextView
         android:id="@+id/text"
@@ -43,10 +64,11 @@
         android:text="Cálculo de média"
         android:textStyle="bold"
         android:textSize="28dp"
-        android:textColor="#697962"
+        android:layout_marginTop="40dp"
+        android:textColor="#FFF0FF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="50dp"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -54,11 +76,11 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
-        android:background="#BDAB9C"
+        android:background="@drawable/borda"
         android:hint="Nota 1"
         android:inputType="numberDecimal"
         android:padding="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text" />
 
@@ -67,11 +89,11 @@
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:background="#BDAB9C"
+        android:background="@drawable/borda"
         android:hint="Nota 2"
         android:inputType="numberDecimal"
         android:padding="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintStart_toEndOf="@id/nota1"
         app:layout_constraintTop_toBottomOf="@+id/text" />
 
@@ -81,7 +103,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
         android:layout_marginTop="48dp"
-        android:background="#BDAB9C"
+        android:background="@drawable/borda"
         android:hint="Nota 3"
         android:inputType="numberDecimal"
         android:padding="20dp"
@@ -94,7 +116,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="104dp"
         android:layout_marginTop="48dp"
-        android:background="#BDAB9C"
+        android:background="@drawable/borda"
         android:hint="Nota 4"
         android:inputType="numberDecimal"
         android:padding="20dp"
@@ -106,13 +128,13 @@
         android:layout_width="177dp"
         android:layout_height="64dp"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="100dp"
-        android:background="#BDAB9C"
-        android:hint="Numero de faltas"
+        android:background="@drawable/borda"
+        android:hint="Número de faltas"
         android:inputType="number"
         android:padding="20dp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
@@ -125,10 +147,10 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="50dp"
-        android:backgroundTint="#AE6F7D"
+        android:backgroundTint="#4B1C71"
         android:text="Calcular"
         android:textStyle="bold"
-        android:textColor="#FFFFFF"
+        android:textColor="#FFF0FF"
         android:textSize="21dp"
         app:cornerRadius="2dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -140,9 +162,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="120dp"
-        android:text="Aluno foi Aprovado!"
         android:textStyle="bold"
-        android:textColor="#697962"
+        android:textColor="#4B1C71"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

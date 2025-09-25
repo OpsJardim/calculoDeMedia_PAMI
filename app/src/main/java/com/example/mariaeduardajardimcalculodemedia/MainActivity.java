@@ -21,42 +21,19 @@ public class MainActivity extends AppCompatActivity {
     
     @Override
     protected void onCreate(Bundle savedInstanceState){
-
-
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
         initComponentes();
 
         btnCalcular.setOnClickListener(view -> {
             validaCampos();
             calculaMedia();
-            resultado.setText("Você clicou no botão calcular");
         });
     }
 
-    private void calculaMedia() {
-        double n1 = Double.parseDouble(nota1.getText().toString());
-        double n2 = Double.parseDouble(nota2.getText().toString());
-        double n3 = Double.parseDouble(nota3.getText().toString());
-        double n4 = Double.parseDouble(nota4.getText().toString());
 
-        double media = (n1 + n2 + n3 + n4)/ 4;
-        double faltas = Double.parseDouble(numeroFaltas.getText().toString());
-
-        if (media > 7){
-            if (faltas < 20){
-                resultado.setTextColor(Color.parseColor("#437845"));
-                resultado.setText("Aluno aprovado com media " + media);
-            } else {
-                resultado.setTextColor(Color.parseColor("#f44336"));
-                resultado.setText("Excesso de falta " + faltas);
-            }
-        } else {
-            resultado.setTextColor(Color.parseColor("f44336"));
-            resultado.setText("Aluno retido com media " + media);
-        }
-    }
 
     private void validaCampos() {
         if (TextUtils.isEmpty(nota1.getText())){
@@ -70,20 +47,6 @@ public class MainActivity extends AppCompatActivity {
         } else if (TextUtils.isEmpty(nota4.getText())) {
             nota4.setError("Este campo não pode estar vazio");
         }
-    }
-
-    private boolean valideCampos2(){
-        boolean camposValidados=true;
-        if (nota1.getText().toString().isEmpty()){
-            camposValidados = false;
-        } else if (nota2.getText().toString().isEmpty()) {
-            camposValidados = false;
-        } else if (nota3.getText().toString().isEmpty()) {
-            camposValidados = false;
-        } else if (nota4.getText().toString().isEmpty()) {
-            camposValidados = false;
-        }
-        return camposValidados;
     }
 
     private boolean validaCampos3(){
@@ -101,6 +64,43 @@ public class MainActivity extends AppCompatActivity {
         numeroFaltas = findViewById(R.id.faltas);
         btnCalcular = findViewById(R.id.btn_calcular);
         resultado = findViewById(R.id.resultado);
+    }
+
+    private void calculaMedia() {
+        double n1 = Double.parseDouble(nota1.getText().toString());
+        double n2 = Double.parseDouble(nota2.getText().toString());
+        double n3 = Double.parseDouble(nota3.getText().toString());
+        double n4 = Double.parseDouble(nota4.getText().toString());
+
+        double media = (n1 + n2 + n3 + n4)/4;
+        double faltas = Double.parseDouble(numeroFaltas.getText().toString());
+
+        if (media > 7){
+            if (faltas < 20){
+                resultado.setTextColor(Color.parseColor("#437845"));
+                resultado.setText("Aluno aprovado com media " + media);
+            } else {
+                resultado.setTextColor(Color.parseColor("#f44336"));
+                resultado.setText("Excesso de falta " + faltas);
+            }
+        } else {
+            resultado.setTextColor(Color.parseColor("#F44336"));
+            resultado.setText("Aluno retido com media " + media);
+        }
+    }
+
+    private boolean valideCampos2(){
+        boolean camposValidados=true;
+        if (nota1.getText().toString().isEmpty()){
+            camposValidados = false;
+        } else if (nota2.getText().toString().isEmpty()) {
+            camposValidados = false;
+        } else if (nota3.getText().toString().isEmpty()) {
+            camposValidados = false;
+        } else if (nota4.getText().toString().isEmpty()) {
+            camposValidados = false;
+        }
+        return camposValidados;
     }
 
 
